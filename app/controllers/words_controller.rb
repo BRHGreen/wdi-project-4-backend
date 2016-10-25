@@ -3,7 +3,7 @@ class WordsController < ApplicationController
 
   # GET /words
   def index
-    @words = Word.all
+    @words = @current_user.words
 
     render json: @words
   end
@@ -15,7 +15,7 @@ class WordsController < ApplicationController
 
   # POST /words
   def create
-    @word = Word.new(word_params)
+    @word = @current_user.words.new(word_params)
 
     if @word.save
       render json: @word, status: :created, location: @word
