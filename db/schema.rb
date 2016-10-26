@@ -27,9 +27,12 @@ ActiveRecord::Schema.define(version: 20161024124433) do
 
   create_table "words", force: :cascade do |t|
     t.integer  "user_id"
-    t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "headword"
+    t.string   "part_of_speech"
+    t.string   "external_id"
+    t.text     "definition"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["user_id"], name: "index_words_on_user_id", using: :btree
   end
 
